@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Sidebar extends Component {
     render() {
         return (
-            <div className='w-1/6 bg-black text-white h-[100vh]'>
+            <div className='w-1/6 text-white h-[100vh]'>
                 <div className='px-5 py-4'>
                     <h1 className='text-3xl font-semibold'>Music Hub</h1>
                     <div className='py-10'>
@@ -16,13 +16,13 @@ export default class Sidebar extends Component {
                                 </span>
                                 <h1>Home</h1>
                             </div>
-                            <div className='flex items-center hover:text-white
+                            {/* <div className='flex items-center hover:text-white
                              transition-colors duration-300 text-gray-500 py-2'>
                                 <span class="material-symbols-outlined pr-2" style={{fontSize: "28px"}}>
                                     Search
                                 </span>
                                 <h1>Search</h1>
-                            </div>
+                            </div> */}
                             <div className='flex items-center hover:text-white
                              transition-colors duration-300 text-gray-500 py-2'>
                                 <span class="material-symbols-outlined pr-2" style={{fontSize: "28px"}}>
