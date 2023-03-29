@@ -11,21 +11,21 @@ export default class Sidebar extends Component {
                         <div className='text-gray-500 py-1 px-2'>
                             <div className='flex items-center hover:text-white
                              transition-colors duration-300 text-gray-500 py-2'>
-                                <span class="material-symbols-outlined pr-2" style={{fontSize: "28px"}}>
+                                <span className="material-symbols-outlined pr-2" style={{fontSize: "28px"}}>
                                     home
                                 </span>
                                 <h1>Home</h1>
                             </div>
                             {/* <div className='flex items-center hover:text-white
                              transition-colors duration-300 text-gray-500 py-2'>
-                                <span class="material-symbols-outlined pr-2" style={{fontSize: "28px"}}>
+                                <span className="material-symbols-outlined pr-2" style={{fontSize: "28px"}}>
                                     Search
                                 </span>
                                 <h1>Search</h1>
                             </div> */}
                             <div className='flex items-center hover:text-white
                              transition-colors duration-300 text-gray-500 py-2'>
-                                <span class="material-symbols-outlined pr-2" style={{fontSize: "28px"}}>
+                                <span className="material-symbols-outlined pr-2" style={{fontSize: "28px"}}>
                                     Bookmarks
                                 </span>
                                 <h1>Library</h1>
@@ -36,7 +36,7 @@ export default class Sidebar extends Component {
                         <div className='flex py-2 text-gray-500 items-center hover:text-white
                              transition-colors duration-300'>
 
-                            <span class="material-symbols-outlined pr-1" style={{fontSize: "30px"}}>
+                            <span className="material-symbols-outlined pr-1" style={{fontSize: "30px"}}>
                                 add
                             </span>
                             <h1>Create Playlist</h1>
@@ -44,7 +44,7 @@ export default class Sidebar extends Component {
                         <div className='flex py-2 text-gray-500 items-center hover:text-white
                              transition-colors duration-300'>
 
-                            <span class="material-symbols-outlined pr-2" style={{fontSize: "30px"}}>
+                            <span className="material-symbols-outlined pr-2" style={{fontSize: "30px"}}>
                                 favorite
                             </span>
                             <h1>Liked Songs</h1>
