@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import options from '../Options'
+import Songcards from './Songcards'
 export default class Mainwindow extends Component {
 
     constructor() {
@@ -9,22 +10,22 @@ export default class Mainwindow extends Component {
         }
     }
 
-    fetchmusicapi = async () => { 
-        const fetchedata = await fetch('https://spotify23.p.rapidapi.com/search/?q=weeknd&type=multi&offset=0&limit=10&numberOfTopResults=5', options)
-        const parseddata = await fetchedata.json()
-        this.setState({songs: parseddata})
-        console.log(this.state.songs)
-    }
+    // fetchmusicapi = async () => {
+    //     const fetchedata = await fetch('https://spotify23.p.rapidapi.com/search/?q=weeknd&type=multi&offset=0&limit=10&numberOfTopResults=5', options)
+    //     const parseddata = await fetchedata.json()
+    //     this.setState({ songs: parseddata })
+    //     console.log(this.state.songs)
+    // }
 
 
 
-    componentDidMount() {
-        this.fetchmusicapi()
-    }
+    // componentDidMount() {
+        // this.fetchmusicapi()
+    // }
 
     render() {
         return (
-            <div className='w-5/6 px-3 py-4 bg-white'>
+            <div className='w-5/6 px-3 py-4 bg-black'>
 
                 {/* Search Bar */}
 
@@ -39,8 +40,13 @@ export default class Mainwindow extends Component {
 
                 {/* Songs Section */}
 
-                <div>
 
+                <div className='px-8 py-7 flex justify-around'>
+                    <Songcards />
+                    <Songcards />
+                    <Songcards />
+                    <Songcards />
+                    <Songcards />
                 </div>
 
             </div>
