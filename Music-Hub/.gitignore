@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 Options.jsx
+Song_api.jsx
 package-lock.json
 postcss.config.cjs
 tailwind.config.cjs
