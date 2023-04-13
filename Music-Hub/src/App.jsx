@@ -3,6 +3,7 @@ import './App.css'
 import Mainwindow from './components/Mainwindow'
 import Sidebar from './components/Sidebar'
 import Song_api from './components/Song_api'
+import Login from './components/Login'
 
 
 function App() {
@@ -10,9 +11,10 @@ function App() {
 
   return (
     <div className="App bg-black flex">
-      <Sidebar/>
+      <Login/>
+      {/* <Sidebar/>
       <Mainwindow/>
-      <Song_api/>
+      <Song_api/> */}
     </div>
   )
 }
