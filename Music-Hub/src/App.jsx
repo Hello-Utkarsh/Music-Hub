@@ -26,10 +26,10 @@ function App() {
   }
 
   return (
-    <div className="App bg-black flex">
-      {token ? <div className='bg-black flex'>
+    <div className="App bg-black flex ">
+      {token ? <div className='bg-black flex w-[100vw] '>
         <Sidebar />
-        <Mainwindow />
+        <Mainwindow token = {token} />
       </div> : <Login getToken={getToken} />}
     </div>
   )
