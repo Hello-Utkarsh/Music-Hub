@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Songcards from './Songcards'
+import Playlist_Cards from '../components/Playlist_Cards'
+import Song_Cards from './Song_Cards'
 export default class Mainwindow extends Component {
 
     constructor(props) {
@@ -65,39 +66,15 @@ export default class Mainwindow extends Component {
                     <div className='px-8 py-7 flex flex-wrap justify-around'>
                         {this.state.song_playlist.playlists.items.map((element) => {
                             // console.log(element.name, element.id)
-                            return <Songcards playlist_name = {element.name}/>
+                            return <Playlist_Cards playlist_name = {element.name}/>
                         })}
                     </div>
+
+                    <Song_Cards/>
 
                 </div>
             )
         }
-        // return (
-        //     <div className='w-5/6 px-3 py-4 bg-black'>
-
-        //         {/* Search Bar */}
-
-        //         <div className='w-full flex justify-center'>
-        //             <div className='w-[60%] bg-gray-500 flex justify-center items-center rounded-xl'>
-        //                 <span className="material-symbols-outlined pr-2" style={{ fontSize: "28px" }}>
-        //                     Search
-        //                 </span>
-        //                 <input type="text" placeholder='Search' className='w-[90%] bg-gray-500 h-8 outline-0' />
-        //             </div>
-        //         </div>
-
-
-
-        //         {/* Songs Section */}
-
-
-        //         <div className='px-8 py-7 flex justify-around'>
-
-
-
-        //         </div>
-
-        //     </div>
-        // )
+        
     }
 }

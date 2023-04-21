@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 
-export default class Songcards extends Component {
+export default class Playlist_Cards extends Component {
   // static propTypes = {
   //   prop: PropTypes
   // }
