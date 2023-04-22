@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Playlist_Cards from '../components/Playlist_Cards'
-import Song_Cards from './Song_Cards'
+// import Song_Cards from './Song_Cards'
+// import InPlaylist from './InPlaylist'
 export default class Mainwindow extends Component {
 
     constructor(props) {
@@ -63,14 +64,12 @@ export default class Mainwindow extends Component {
                     {/* Songs Section */}
 
 
-                    <div className='px-8 py-7 flex flex-wrap justify-around'>
+                    <div className='px-8 py-7 flex flex-wrap'>
                         {this.state.song_playlist.playlists.items.map((element) => {
                             // console.log(element.name, element.id)
                             return <Playlist_Cards playlist_name = {element.name}/>
                         })}
                     </div>
-
-                    <Song_Cards/>
 
                 </div>
             )
