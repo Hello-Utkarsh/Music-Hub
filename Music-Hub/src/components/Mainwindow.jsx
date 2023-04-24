@@ -26,7 +26,6 @@ export default class Mainwindow extends Component {
         this.setState({
             song_playlist: parsed_data
         })
-        console.log(this.state.song_playlist)
         if (this.state.song_playlist != null) {
 
             this.state.song_playlist.playlists.items.forEach(element => {

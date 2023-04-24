@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Mainwindow from './components/Mainwindow'
 import Sidebar from './components/Sidebar'
 import Login from './components/Login'
+import Liked_playlist from './components/Liked_playlist'
 
 
 function App() {
@@ -23,13 +24,31 @@ function App() {
     })
     let parsed_data = await result.json()
     set_token(parsed_data)
+    getUser(parsed_data)
   }
+
+  const getUser = async (data) => {
+    // console.log(data.access_token)
+    const result2 = await fetch('https://api.spotify.com/v1/me', {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer  ' + data.access_token,
+                // 'Content-type': 'application/json'
+            }
+        })
+    let parsed_data2 = await result2.json()
+    console.log(result2)
+    
+  }
+
+  
 
   return (
     <div className="App bg-black flex ">
       {token ? <div className='bg-black flex w-[100vw] '>
         <Sidebar />
-        <Mainwindow token = {token} />
+        <Liked_playlist/>
+        {/* <Mainwindow token = {token} /> */}
       </div> : <Login getToken={getToken} />}
     </div>
   )
