@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Playlist_Cards from '../components/Playlist_Cards'
-// import Song_Cards from './Song_Cards'
-// import InPlaylist from './InPlaylist'
 export default class Mainwindow extends Component {
 
     constructor(props) {
@@ -26,20 +24,13 @@ export default class Mainwindow extends Component {
         this.setState({
             song_playlist: parsed_data
         })
-        if (this.state.song_playlist != null) {
-
-            this.state.song_playlist.playlists.items.forEach(element => {
-                // console.log(element.name, element.id)
-            })
-
-        }
+        
 
 
     }
 
     componentDidMount() {
         this.getplaylist()
-        // console.log(this.state.playlist)
     }
 
     render() {
@@ -65,8 +56,7 @@ export default class Mainwindow extends Component {
 
                     <div className='px-8 py-7 flex flex-wrap'>
                         {this.state.song_playlist.playlists.items.map((element) => {
-                            // console.log(element.name, element.id)
-                            return <Playlist_Cards playlist_name = {element.name}/>
+                            return <Playlist_Cards playlist_name = {element.name} playlist_img = {element.images[0].url} />
                         })}
                     </div>
 

@@ -3,7 +3,7 @@ import './App.css'
 import Mainwindow from './components/Mainwindow'
 import Sidebar from './components/Sidebar'
 import Login from './components/Login'
-import Liked_playlist from './components/Liked_playlist'
+// import Liked_playlist from './components/Liked_playlist'
 
 
 function App() {
@@ -47,8 +47,8 @@ function App() {
     <div className="App bg-black flex ">
       {token ? <div className='bg-black flex w-[100vw] '>
         <Sidebar />
-        <Liked_playlist/>
-        {/* <Mainwindow token = {token} /> */}
+        {/* <Liked_playlist/> */}
+        <Mainwindow token = {token} />
       </div> : <Login getToken={getToken} />}
     </div>
   )
