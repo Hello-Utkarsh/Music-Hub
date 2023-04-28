@@ -3,6 +3,7 @@ import './App.css'
 import Mainwindow from './components/Mainwindow'
 import Sidebar from './components/Sidebar'
 import Login from './components/Login'
+import Home from './components/Home'
 // import Liked_playlist from './components/Liked_playlist'
 
 
@@ -13,6 +14,8 @@ function App() {
   const clientSecret = import.meta.env.VITE_CLIENTSECRET
 
   const getToken = async () => {
+    
+    
     const result = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
@@ -24,11 +27,28 @@ function App() {
     })
     let parsed_data = await result.json()
     set_token(parsed_data)
-    getUser(parsed_data)
+    console.log(token)
+    getUser()
   }
 
   const getUser = async (data) => {
     // console.log(data.access_token)
+    const scopes = [
+      'user-read-email',
+      'user-read-private',
+      'user-read-playback-state',
+      'user-modify-playback-state',
+      'user-read-currently-playing',
+      'user-read-playback-position',
+      'user-read-recently-played',
+      'user-top-read'
+
+    ]
+    window.location.href = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=http://127.0.0.1:5173/&scope=${scopes.join(' ')}&show_daialog=true`
+    // const authorizeID = await fetch(authorize_url,{
+    //   mode: 'no-cors'
+    // })
+    // console.log(authorizeID)
     const result2 = await fetch('https://api.spotify.com/v1/me', {
             method: 'GET',
             headers: {
@@ -37,7 +57,7 @@ function App() {
             }
         })
     let parsed_data2 = await result2.json()
-    console.log(result2)
+    console.log(parsed_data2)
     
   }
 
@@ -45,11 +65,7 @@ function App() {
 
   return (
     <div className="App bg-black flex ">
-      {token ? <div className='bg-black flex w-[100vw] '>
-        <Sidebar />
-        {/* <Liked_playlist/> */}
-        <Mainwindow token = {token} />
-      </div> : <Login getToken={getToken} />}
+      {token ? <Home token = {token}/> : <Login getToken={getToken} />}
     </div>
   )
 }
