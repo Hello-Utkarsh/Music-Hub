@@ -24,7 +24,7 @@ export default class Mainwindow extends Component {
         this.setState({
             song_playlist: parsed_data
         })
-        
+        console.log(parsed_data)
 
 
     }
@@ -56,7 +56,7 @@ export default class Mainwindow extends Component {
 
                     <div className='px-8 py-7 flex flex-wrap'>
                         {this.state.song_playlist.playlists.items.map((element) => {
-                            return <Playlist_Cards playlist_name = {element.name} playlist_img = {element.images[0].url} />
+                            return <Playlist_Cards playlist_data = {element} playlist_name = {element.name} playlist_id = {element.id} playlist_img = {element.images[0].url} />
                         })}
                     </div>
 

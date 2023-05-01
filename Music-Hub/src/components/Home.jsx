@@ -23,11 +23,11 @@ export default function Home() {
         })
         let parsed_data = await result.json()
         set_token(parsed_data)
-        console.log(token)
+        // console.log(token)
     }
 
-    const getUser = async (data) => {
-        console.log(token.access_token)
+    const getUser = async () => {
+        // console.log(token.access_token)
         const result2 = await fetch('https://api.spotify.com/v1/me', {
             method: 'GET',
             headers: {
@@ -36,7 +36,7 @@ export default function Home() {
             }
         })
         let parsed_data2 = await result2.json()
-        console.log(parsed_data2)
+        // console.log(parsed_data2)
 
     }
 
