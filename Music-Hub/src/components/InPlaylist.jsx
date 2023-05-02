@@ -11,9 +11,12 @@ export default class InPlaylist extends Component {
                         <h3 className='py-1'>Playlist Name</h3>
                         <h3 className='py-1'>Singers</h3>
                         <h3 className='py-1'>Length of the playlist</h3>
+                        <span className="material-symbols-outlined mt-4 cursor-pointer" style={{ fontSize: "30px" }}>
+                            bookmarks
+                        </span>
                     </div>
                 </div>
-                <div className='bg-white h-[1px] mt-10 mb-2'/>
+                <div className='bg-white h-[1px] mt-10 mb-2' />
                 <div className='py-4'>
                     <Song_Cards />
                     <Song_Cards />

@@ -45,8 +45,7 @@ export default class Sidebar extends Component {
 
                         <div className='h-[0.1px] mt-3 bg-white w-full'></div>
 
-                            <div className='flex mt-7 text-gray-500 items-center hover:text-white
-                             transition-colors duration-300'>
+                            <div className='flex mt-7 text-gray-500 items-center'>
 
                                 <span className="material-symbols-outlined pr-2" style={{ fontSize: "30px" }}>
                                     bookmarks

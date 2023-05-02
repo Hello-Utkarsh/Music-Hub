@@ -36,8 +36,9 @@ export default function Connect() {
         })
         let parsed_data = await result.json()
         set_token(parsed_data)
-        window.location.href = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=http://127.0.0.1:5173/Home&scope=${scopes.join(' ')}&show_dialog=true`
+        window.location.href = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=http://127.0.0.1:5173/Home&scope=${scopes.join(' ')}&show_dialog=true`
         signit(true)
+        
 
     }
 

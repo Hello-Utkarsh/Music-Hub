@@ -6,6 +6,7 @@ import Login from './Login'
 export default function Home() {
 
     const [token, set_token] = useState(undefined)
+    const [token2, set_token2] = useState(undefined)
     const client_id = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENTSECRET
 
@@ -23,6 +24,13 @@ export default function Home() {
         })
         let parsed_data = await result.json()
         set_token(parsed_data)
+        const hash = window.location.hash
+        if (hash) {
+            // console.log(hash.substring(1).split('&')[0].split('=')[1])
+            set_token2(hash.substring(1).split('&')[0].split('=')[1])
+            // console.log(token2)
+        }
+        getUser()
         // console.log(token)
     }
 
@@ -31,24 +39,25 @@ export default function Home() {
         const result2 = await fetch('https://api.spotify.com/v1/me', {
             method: 'GET',
             headers: {
-                Authorization: 'Bearer  ' + token.access_token,
+                Authorization: 'Bearer  ' + token2,
                 'Content-type': 'application/json'
             }
         })
         let parsed_data2 = await result2.json()
-        // console.log(parsed_data2)
-
+        console.log(parsed_data2)
     }
-
 
     useEffect(() => {
         if (token == undefined) {
             getToken()
         }
-        if (token != undefined) {
-            getUser()
-        }
-        
+
+        getUser()
+        // if (token != undefined) {
+        //     getUser()
+        // }
+        console.log(token2)
+
 
     }, [token])
 
