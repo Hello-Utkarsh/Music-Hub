@@ -7,17 +7,9 @@ export default class Playlist_Cards extends Component {
     super(props)
 
     this.state = {
-      // playlist_data : this.props.playlist_data,
       playlist_id: this.props.playlist_id
     }
   }
-
-
-  // open_playlist = (params) => {
-
-  //   console.log(this.state.playlist_data)
-
-  // }
 
   render() {
     return (

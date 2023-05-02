@@ -10,8 +10,6 @@ export default class Sidebar extends Component {
 
                     <div className='py-10'>
 
-                        {/* <h1 className=''>Menu</h1> */}
-
                         <div className='text-gray-500 py-1 px-2'>
 
                             <div className='flex items-center hover:text-white

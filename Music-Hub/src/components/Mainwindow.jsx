@@ -6,7 +6,7 @@ export default class Mainwindow extends Component {
         super(props)
 
         this.state = {
-            song_playlist: null
+            song_playlist: undefined
         }
     }
 
@@ -41,11 +41,17 @@ export default class Mainwindow extends Component {
                     {/* Search Bar */}
 
                     <div className='w-full flex justify-center'>
-                        <div className='w-[60%] bg-gray-500 flex justify-center items-center rounded-xl'>
+                        <div className='w-[60%] bg-gray-700 flex justify-center items-center rounded-xl'>
                             <span className="material-symbols-outlined pr-2" style={{ fontSize: "28px" }}>
                                 Search
                             </span>
-                            <input type="text" placeholder='Search' className='w-[90%] bg-gray-500 h-8 outline-0' />
+                            <input type="text" placeholder='Search' className='w-[90%] bg-gray-700 h-8 outline-0' />
+                        </div>
+                        <div className='w-[10%] bg-gray-700 flex justify-around items-center ml-16 rounded-xl'>
+                            <span class="material-symbols-outlined ml-1 mt-1" style={{ fontSize: "30px" }}>
+                                person
+                            </span>
+                            <h3 className='font-semibold text-lg mr-1 text-white'>{this.props.user_details.display_name}</h3>
                         </div>
                     </div>
 
@@ -56,13 +62,13 @@ export default class Mainwindow extends Component {
 
                     <div className='px-8 py-7 flex flex-wrap'>
                         {this.state.song_playlist.playlists.items.map((element) => {
-                            return <Playlist_Cards playlist_data = {element} playlist_name = {element.name} playlist_id = {element.id} playlist_img = {element.images[0].url} />
+                            return <Playlist_Cards playlist_data={element} playlist_name={element.name} playlist_id={element.id} playlist_img={element.images[0].url} />
                         })}
                     </div>
 
                 </div>
             )
         }
-        
+
     }
 }

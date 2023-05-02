@@ -6,7 +6,9 @@ import Login from './Login'
 export default function Home() {
 
     const [token, set_token] = useState(undefined)
-    const [token2, set_token2] = useState(undefined)
+    const [hash_token, set_hash_token] = useState(undefined)
+    const [profile_details, set_details] = useState(undefined)
+    
     const client_id = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENTSECRET
 
@@ -26,25 +28,24 @@ export default function Home() {
         set_token(parsed_data)
         const hash = window.location.hash
         if (hash) {
-            // console.log(hash.substring(1).split('&')[0].split('=')[1])
-            set_token2(hash.substring(1).split('&')[0].split('=')[1])
-            // console.log(token2)
+            set_hash_token(hash.substring(1).split('&')[0].split('=')[1])
         }
+
         getUser()
-        // console.log(token)
+
     }
 
     const getUser = async () => {
-        // console.log(token.access_token)
         const result2 = await fetch('https://api.spotify.com/v1/me', {
             method: 'GET',
             headers: {
-                Authorization: 'Bearer  ' + token2,
+                Authorization: 'Bearer  ' + hash_token,
                 'Content-type': 'application/json'
             }
         })
         let parsed_data2 = await result2.json()
-        console.log(parsed_data2)
+        set_details(parsed_data2)
+
     }
 
     useEffect(() => {
@@ -53,11 +54,6 @@ export default function Home() {
         }
 
         getUser()
-        // if (token != undefined) {
-        //     getUser()
-        // }
-        console.log(token2)
-
 
     }, [token])
 
@@ -66,7 +62,7 @@ export default function Home() {
             {token ? <div className='bg-black flex w-[100vw] '>
 
                 <Sidebar />
-                <Mainwindow token={token} />
+                <Mainwindow token={token} user_details = {profile_details}/>
 
             </div> : <Login />}
         </div>
