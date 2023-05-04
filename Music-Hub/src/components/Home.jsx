@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import Mainwindow from './Mainwindow'
-import Login from './Login'
+import Player from './Player'
 
 export default function Home() {
 
     const [token, set_token] = useState(undefined)
     const [hash_token, set_hash_token] = useState(undefined)
     const [profile_details, set_details] = useState(undefined)
-    
+
     const client_id = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENTSECRET
 
@@ -57,17 +57,36 @@ export default function Home() {
 
     }, [token])
 
+    // if (token != undefined) {
+    //     // <Link to='Home/inplaylist' />
+    //     return (
+    //         <div className="App bg-black flex ">
+    //             <div className='bg-black flex w-[100vw] '>
+
+    //                 <Sidebar />
+    //                 <Mainwindow token={token} user_details={profile_details} />
+    //                 <Player/>
+
+    //             </div>
+    //         </div>
+    //     )
+    // }
+
     return (
         <div className="App bg-black flex ">
-            {token ? <div className='bg-black flex w-[100vw] '>
+            {/* <div className='bg-black flex w-[100vw] '>
 
                 <Sidebar />
-                <Mainwindow token={token} user_details = {profile_details}/>
+                <Mainwindow token={token} user_details={profile_details} />
+
+            </div> */}
+            {token ? <div className='flex w-[100vw] '>
+
+                <Sidebar />
+                <Mainwindow token={token} user_details={profile_details} />
+                <Player />
 
             </div> : <Login />}
         </div>
     )
 }
-
-
-

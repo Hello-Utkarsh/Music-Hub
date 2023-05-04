@@ -16,13 +16,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="Connect" element={<Connect />} />
-        <Route path="/inplaylist" element={<div className='bg-black flex w-[100vw] '>
+        <Route path="Home/inplaylist" element={<div className='bg-black flex w-[100vw] '>
 
           <Sidebar />
           <InPlaylist />
 
         </div>} />
-        <Route path="Home" element={<Home />} />
+        <Route path="Home" element={<Home hello = {'hello'} />} />
       </Routes>
     </BrowserRouter>
     // <div>

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Home from './Home'
-import Login from './Login'
 
 export default function Connect() {
 
@@ -24,7 +22,6 @@ export default function Connect() {
     const clientSecret = import.meta.env.VITE_CLIENTSECRET
 
     const authorize = async () => {
-        // getToken()
         const result = await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
             headers: {
@@ -59,7 +56,7 @@ export default function Connect() {
     
     return (
         <div className="App bg-black flex ">
-            {/* {token ? <Hom/> : <Login />} */}
+            
         </div>
     )
 }

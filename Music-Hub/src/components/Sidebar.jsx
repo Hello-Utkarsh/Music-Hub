@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Sidebar extends Component {
     render() {
         return (
-            <div className='w-1/6 text-white h-[100vh]'>
+            <div className='w-1/6 text-white h-full bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
 
                 <div className='px-5 py-4'>
                     <h1 className='text-3xl font-semibold'>Music Hub</h1>
