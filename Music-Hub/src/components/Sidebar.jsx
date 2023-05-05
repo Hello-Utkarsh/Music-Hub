@@ -10,10 +10,10 @@ export default class Sidebar extends Component {
 
                     <div className='py-10'>
 
-                        <div className='text-gray-500 py-1 px-2'>
+                        <div className='text-gray-400 py-1 px-2'>
 
                             <div className='flex items-center hover:text-white
-                             transition-colors duration-300 text-gray-500 py-2'>
+                             transition-colors duration-300 text-gray-400 py-2'>
 
                                 <span className="material-symbols-outlined pr-2" style={{ fontSize: "28px" }}>
                                     home
@@ -22,7 +22,7 @@ export default class Sidebar extends Component {
 
                             </div>
 
-                            <div className='flex py-2 text-gray-500 items-center hover:text-white
+                            <div className='flex py-2 text-gray-400 items-center hover:text-white
                              transition-colors duration-300'>
 
                                 <span className="material-symbols-outlined pr-1" style={{ fontSize: "30px" }}>
@@ -30,7 +30,7 @@ export default class Sidebar extends Component {
                                 </span>
                                 <h1>Create Playlist</h1>
                             </div>
-                            <div className='flex py-2 text-gray-500 items-center hover:text-white
+                            <div className='flex py-2 text-gray-400 items-center hover:text-white
                              transition-colors duration-300'>
 
                                 <span className="material-symbols-outlined pr-2" style={{ fontSize: "30px" }}>
@@ -43,7 +43,7 @@ export default class Sidebar extends Component {
 
                         <div className='h-[0.1px] mt-3 bg-white w-full'></div>
 
-                            <div className='flex mt-7 text-gray-500 items-center'>
+                            <div className='flex mt-7 text-gray-400 items-center'>
 
                                 <span className="material-symbols-outlined pr-2" style={{ fontSize: "30px" }}>
                                     bookmarks

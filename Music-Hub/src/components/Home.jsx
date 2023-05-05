@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import Mainwindow from './Mainwindow'
 import Player from './Player'
+import Login from './Login'
 
 export default function Home() {
 
