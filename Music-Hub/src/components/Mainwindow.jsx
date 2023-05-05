@@ -59,7 +59,7 @@ export default class Mainwindow extends Component {
 
                     <div className='px-8 py-7 flex flex-wrap'>
                         {this.state.song_playlist.playlists.items.map((element) => {
-                            return <Playlist_Cards playlist_data={element} description = {element.description.slice(0,45)} playlist_name={element.name} playlist_id={element.id} playlist_img={element.images[0].url} />
+                            return <Playlist_Cards playlist_data={element} description = {element.description.slice(0,40)} playlist_name={element.name} playlist_id={element.id} playlist_img={element.images[0].url} />
                         })}
                     </div>
 

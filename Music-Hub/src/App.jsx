@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="Connect" element={<Connect />} />
-        <Route path="Home/inplaylist" element={<div className='bg-black flex w-[100vw] '>
+        <Route path="Home/inplaylist" element={<div className='bg-black flex w-[100vw] h-[100vh] '>
 
           <Sidebar />
           <InPlaylist />

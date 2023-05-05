@@ -1,7 +1,33 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-export default class Sidebar extends Component {
-    render() {
+export default function Sidebar() {
+    const hash_token = useSelector(state => state.hash_token.value)
+    const [user_playlist, set_playlist] = useState(undefined)
+
+    const get_user_playlist = async () => {
+        const result = await fetch('https://api.spotify.com/v1/me/playlists', {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer  ' + hash_token,
+                'Content-type': 'application/json'
+            }
+        })
+
+        let parsed_data = await result.json()
+        set_playlist(parsed_data.items)
+    }
+
+    useEffect(() => {
+        if (user_playlist == undefined) {
+            get_user_playlist()
+
+        }
+        // console.log(user_playlist)
+    })
+
+    if (user_playlist != undefined) {
         return (
             <div className='w-1/6 text-white h-full bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
 
@@ -43,17 +69,31 @@ export default class Sidebar extends Component {
 
                         <div className='h-[0.1px] mt-3 bg-white w-full'></div>
 
-                            <div className='flex mt-7 text-gray-400 items-center'>
+                        <div className='flex flex-col mt-7 text-gray-400 justify-center'>
+
+                            <div className='flex'>
 
                                 <span className="material-symbols-outlined pr-2" style={{ fontSize: "30px" }}>
                                     bookmarks
                                 </span>
                                 <h1>Your Library</h1>
                             </div>
+                            <div className='mt-6 text-gray-500 text-base'>
+                                {user_playlist.map((element) => {
+                                    return <Link to='/Home/inplaylist'>
+                                        <p className='cursor-pointer py-1'>{element.name}</p>
+                                    </Link>
+                                })}
+                            </div>
+
+                        </div>
 
                     </div>
                 </div>
             </div>
         )
     }
+
+
+
 }
