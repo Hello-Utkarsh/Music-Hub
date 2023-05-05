@@ -3,12 +3,18 @@ import Sidebar from './Sidebar'
 import Mainwindow from './Mainwindow'
 import Player from './Player'
 import Login from './Login'
+import { useDispatch, useSelector } from 'react-redux'
+import { set_token } from './features/store'
 
 export default function Home() {
 
-    const [token, set_token] = useState(undefined)
+    // const [token, set_token] = useState(undefined)
     const [hash_token, set_hash_token] = useState(undefined)
     const [profile_details, set_details] = useState(undefined)
+    const token = useSelector(state => state.token.value)
+    // const hash_token_timepass = useSelector(state => state.hash_token.value)
+    const dispatch = useDispatch()
+
 
     const client_id = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENTSECRET
@@ -26,13 +32,17 @@ export default function Home() {
             body: 'grant_type=client_credentials&client_id=your-client-id&client_secret=your-client-secret'
         })
         let parsed_data = await result.json()
-        set_token(parsed_data)
+        // set_token(parsed_data)
+        dispatch(set_token(parsed_data))
         const hash = window.location.hash
         if (hash) {
             set_hash_token(hash.substring(1).split('&')[0].split('=')[1])
+
         }
 
         getUser()
+        // dispatch(set_hash_token('null'))
+
 
     }
 
@@ -55,6 +65,7 @@ export default function Home() {
         }
 
         getUser()
+
 
     }, [token])
 

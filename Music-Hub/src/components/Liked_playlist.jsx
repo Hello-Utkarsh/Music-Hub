@@ -7,7 +7,7 @@ export default class Liked_playlist extends Component {
             <div className='h-full w-5/6'>
                 <div className='bg-gray-400 px-8 w-full flex items-end py-16'>
                     <div className='h-60 w-60 bg-gradient-to-b from-blue-700 to-purple-400 flex justify-center items-center'>
-                        <span class="material-symbols-outlined" style={{ color: 'white', fontSize: '110px' }} >
+                        <span className="material-symbols-outlined" style={{ color: 'white', fontSize: '110px' }} >
                             favorite
                         </span>
                     </div>

@@ -12,20 +12,20 @@ export default function Player() {
                     </h3>
                     <p className='text-sm'>Weeknd</p>
                 </div>
-                <span class="material-symbols-outlined pl-4 cursor-pointer" style={{ color: 'white' }} >
+                <span className="material-symbols-outlined pl-4 cursor-pointer" style={{ color: 'white' }} >
                     favorite
                 </span>
             </div>
 
             <div className='w-[30%] text-white h-full m-auto flex flex-col items-center justify-center'>
                 <div className='w-full h-[50%] flex justify-center items-center'>
-                    <span class="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
+                    <span className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
                         arrow_back_ios
                     </span>
-                    <span class="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '50px' }}>
+                    <span className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '50px' }}>
                         play_arrow
                     </span>
-                    <span class="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
+                    <span className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
                         arrow_forward_ios
                     </span>
                 </div>

@@ -24,7 +24,6 @@ export default class Mainwindow extends Component {
         this.setState({
             song_playlist: parsed_data
         })
-        console.log(this.state.song_playlist)
     }
 
     componentDidMount() {
@@ -46,7 +45,7 @@ export default class Mainwindow extends Component {
                             <input type="text" placeholder='Search' className='w-[90%] bg-gray-700 h-8 outline-0' />
                         </div>
                         <div className='w-[10%] bg-gray-700 flex justify-around items-center ml-16 rounded-xl'>
-                            <span class="material-symbols-outlined ml-1 mt-1" style={{ fontSize: "30px" }}>
+                            <span className="material-symbols-outlined ml-1 mt-1" style={{ fontSize: "30px" }}>
                                 person
                             </span>
                             <h3 className='font-semibold text-lg mr-1 text-white'>{this.props.user_details.display_name}</h3>
