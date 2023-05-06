@@ -4,15 +4,16 @@ import Mainwindow from './Mainwindow'
 import Player from './Player'
 import Login from './Login'
 import { useDispatch, useSelector } from 'react-redux'
-import { set_token, set_hash } from './features/store'
+import { set_token, set_hash, set_details } from './features/store'
 
 export default function Home() {
 
     // const [token, set_token] = useState(undefined)
     // const [hash_token, set_hash_token] = useState(undefined)
-    const [profile_details, set_details] = useState(undefined)
+    // const [profile_details, set_details] = useState(undefined)
     const token = useSelector(state => state.token.value)
     const hash_token = useSelector(state => state.hash_token.value)
+    const profile_details = useSelector(state => state.profile_details.value)
     const dispatch = useDispatch()
 
 
@@ -54,7 +55,7 @@ export default function Home() {
             }
         })
         let parsed_data2 = await result2.json()
-        set_details(parsed_data2)
+        dispatch(set_details(parsed_data2))
 
     }
 

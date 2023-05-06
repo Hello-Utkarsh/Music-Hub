@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { set_playlist_id } from './features/store'
 
 export default function Sidebar() {
     const hash_token = useSelector(state => state.hash_token.value)
+    const playlist_id = useSelector(state => state.playlist_id.value)
     const [user_playlist, set_playlist] = useState(undefined)
+    const dispatch = useDispatch()
 
     const get_user_playlist = async () => {
         const result = await fetch('https://api.spotify.com/v1/me/playlists', {
@@ -17,6 +20,11 @@ export default function Sidebar() {
 
         let parsed_data = await result.json()
         set_playlist(parsed_data.items)
+    }
+
+    const set_playlist_id = (element) => {
+        // dispatch(set_playlist_id(element.id))
+        console.log(element)
     }
 
     useEffect(() => {
@@ -38,15 +46,18 @@ export default function Sidebar() {
 
                         <div className='text-gray-400 py-1 px-2'>
 
-                            <div className='flex items-center hover:text-white
+                            <Link to='/Home'>
+
+                                <div className='flex items-center hover:text-white
                              transition-colors duration-300 text-gray-400 py-2'>
 
-                                <span className="material-symbols-outlined pr-2" style={{ fontSize: "28px" }}>
-                                    home
-                                </span>
-                                <h1>Home</h1>
+                                    <span className="material-symbols-outlined pr-2" style={{ fontSize: "28px" }}>
+                                        home
+                                    </span>
+                                    <h1>Home</h1>
 
-                            </div>
+                                </div>
+                            </Link>
 
                             <div className='flex py-2 text-gray-400 items-center hover:text-white
                              transition-colors duration-300'>
@@ -80,6 +91,7 @@ export default function Sidebar() {
                             </div>
                             <div className='mt-6 text-gray-500 text-base'>
                                 {user_playlist.map((element) => {
+                                    // console.log(element.id)
                                     return <Link to='/Home/inplaylist'>
                                         <p className='cursor-pointer py-1'>{element.name}</p>
                                     </Link>

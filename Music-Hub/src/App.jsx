@@ -22,7 +22,7 @@ function App() {
           <InPlaylist />
 
         </div>} />
-        <Route path="Home" element={<Home hello = {'hello'} />} />
+        <Route path="Home" element={<Home />} />
       </Routes>
     </BrowserRouter>
     // <div>
