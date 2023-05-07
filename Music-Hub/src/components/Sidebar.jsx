@@ -9,6 +9,21 @@ export default function Sidebar() {
     const [user_playlist, set_playlist] = useState(undefined)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        if (user_playlist == undefined) {
+            get_user_playlist()
+
+        }
+        // Array.from(document.getElementsByClassName('xyz')).forEach((element) => {
+        //     element.addEventListener('click', (element) => {
+        //         dispatch(set_playlist_id(element.target.id))
+        //         console.log(element.target.id)
+        //     })
+        //     console.log(playlist_id)
+        // })
+
+    }, [])
+
     const get_user_playlist = async () => {
         const result = await fetch('https://api.spotify.com/v1/me/playlists', {
             method: 'GET',
@@ -22,18 +37,12 @@ export default function Sidebar() {
         set_playlist(parsed_data.items)
     }
 
-    const set_playlist_id = (element) => {
-        // dispatch(set_playlist_id(element.id))
-        console.log(element)
-    }
+    // const set_playlist_id = (element) => {
+    //     // dispatch(set_playlist_id(element.id))
+    //     console.log(element)
+    // }
 
-    useEffect(() => {
-        if (user_playlist == undefined) {
-            get_user_playlist()
 
-        }
-        // console.log(user_playlist)
-    })
 
     if (user_playlist != undefined) {
         return (
@@ -91,9 +100,10 @@ export default function Sidebar() {
                             </div>
                             <div className='mt-6 text-gray-500 text-base'>
                                 {user_playlist.map((element) => {
-                                    // console.log(element.id)
+
+
                                     return <Link to='/Home/inplaylist'>
-                                        <p className='cursor-pointer py-1'>{element.name}</p>
+                                        <p className='xyz cursor-pointer py-1' id={element.id}>{element.name}</p>
                                     </Link>
                                 })}
                             </div>
