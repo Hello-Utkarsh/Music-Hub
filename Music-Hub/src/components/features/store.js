@@ -19,7 +19,7 @@ export const token = createSlice({
 export const hash_token = createSlice({
   name: 'hash_token',
   initialState: {
-    value: 'hello'
+    value: undefined
   },
   reducers: {
     set_hash: (state, x) => {

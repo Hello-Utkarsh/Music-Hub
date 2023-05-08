@@ -15,7 +15,7 @@ export default class Song_Cards extends Component {
         <div className='flex items-center'>
           <h3 className='text-gray-400'>Blinding Lights</h3>
         </div>
-        <span class="material-symbols-outlined pl-28 cursor-pointer" style={{color: 'white'}} >
+        <span className="material-symbols-outlined pl-28 cursor-pointer" style={{color: 'white'}} >
           favorite
         </span>
       </div>

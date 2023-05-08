@@ -11,6 +11,7 @@ export default function Home() {
     const token = useSelector(state => state.token.value)
     const hash_token = useSelector(state => state.hash_token.value)
     const profile_details = useSelector(state => state.profile_details.value)
+    const hash = window.location.hash
     const dispatch = useDispatch()
 
 
@@ -31,7 +32,6 @@ export default function Home() {
         })
         let parsed_data = await result.json()
         dispatch(set_token(parsed_data))
-        const hash = window.location.hash
         if (hash) {
             dispatch(set_hash(hash.substring(1).split('&')[0].split('=')[1]))
 
