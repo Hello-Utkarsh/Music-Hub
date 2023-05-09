@@ -28,6 +28,18 @@ export const hash_token = createSlice({
   }
 })
 
+export const liked_songs = createSlice({
+  name: 'liked_songs',
+  initialState: {
+    value: []
+  },
+  reducers:{
+    add_liked_songs: (state, song) => {
+      state.value += song.payload
+    }
+  }
+})
+
 export const playlist_id = createSlice({
   name: 'playlist_id',
   initialState: {
@@ -57,7 +69,8 @@ export default configureStore({
     token: token.reducer,
     hash_token: hash_token.reducer,
     playlist_id: playlist_id.reducer,
-    profile_details: profile_details.reducer
+    profile_details: profile_details.reducer,
+    liked_songs: liked_songs.reducer
   }
 })
 
@@ -66,4 +79,5 @@ export const { set_token } = token.actions
 export const {set_hash} = hash_token.actions
 export const {set_playlist_id} = playlist_id.actions
 export const {set_details} = profile_details.actions
+export const {add_liked_songs} = liked_songs.actions
 // export default counterSlice.reducer

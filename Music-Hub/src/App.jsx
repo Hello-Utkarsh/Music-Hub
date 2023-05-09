@@ -14,14 +14,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="Connect" element={<Connect />} />
-        <Route path="Home/liked" element={<div className='bg-black flex w-[100vw] h-[100vh] '>
+        <Route path="Home/liked" element={<div className='bg-black flex h-[100vh]'>
 
           <Sidebar />
           <Liked_playlist />
 
         </div>} />
         
-        <Route path="Home/inplaylist" element={<div className='bg-black flex w-[100vw] h-[100vh] '>
+        <Route path="Home/inplaylist" element={<div className='bg-black flex h-[100vh] '>
 
           <Sidebar />
           <InPlaylist />

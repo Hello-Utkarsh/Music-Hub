@@ -9,18 +9,25 @@ export default function Sidebar() {
     const [user_playlist, set_playlist] = useState(undefined)
     const dispatch = useDispatch()
 
+    const get_playlist_id = async () => {
+        Array.from(document.getElementsByClassName('xyz')).map((element) => {
+            element.addEventListener('click', (element) => {
+                dispatch(set_playlist_id(element.target.id))
+                // console.log(element.target.id)
+            })
+        })
+    }
+
+    window.onload = get_playlist_id()
+
     useEffect(() => {
         if (user_playlist == undefined) {
             get_user_playlist()
 
         }
-        Array.from(document.getElementsByClassName('xyz')).map((element) => {
-            element.addEventListener('click', (element) => {
-                dispatch(set_playlist_id(element.target.id))
-                console.log(element.target.id)
-            })
-            console.log(playlist_id)
-        })
+
+        // get_playlist_id()
+
 
     }, [])
 
@@ -46,7 +53,7 @@ export default function Sidebar() {
 
 
     return (
-        <div className='w-1/6 text-white h-full bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
+        <div className='w-1/6 text-white h-full fixed bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
 
             <div className='px-5 py-4'>
                 <h1 className='text-3xl font-semibold'>Music Hub</h1>

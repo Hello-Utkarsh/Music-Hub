@@ -33,7 +33,7 @@ export default class Mainwindow extends Component {
     render() {
         if (this.state.song_playlist != null) {
             return (
-                <div className='w-5/6 h-full px-3 py-4 bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
+                <div className='w-5/6 h-full ml-[16.66%] px-3 py-4 bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
 
                     {/* Search Bar */}
 

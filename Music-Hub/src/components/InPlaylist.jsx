@@ -1,11 +1,12 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import Song_Cards from './Song_Cards'
 import { useSelector } from 'react-redux'
 
 export default function InPlaylist() {
-    const token = useSelector(state => state.token.value)
+    // const token = useSelector(state => state.token.value)
     const hash_token = useSelector(state => state.hash_token.value)
     const playlist_id = useSelector(state => state.playlist_id.value)
+    const [playist, set_playlist] = useState([])
     // console.log(playlist_id)
 
 
@@ -24,6 +25,7 @@ export default function InPlaylist() {
             }
         })
         let parsed_data = await result.json()
+        set_playlist(parsed_data.tracks.items)
         // console.log(parsed_data)
         // console.log(token)
     }
@@ -31,8 +33,8 @@ export default function InPlaylist() {
     
 
     return (
-        <div className='h-full w-5/6'>
-            <div className='bg-gray-400 px-8 w-full flex items-end py-16'>
+        <div className='h-full w-[100vw] bg-gradient-to-b from-[#4705a4d6] to-[#0000005d] pl-[16.66%]'>
+            <div className=' px-8 w-full flex items-end py-16'>
                 <img src="https://th.bing.com/th/id/OIP.o9A22FDuVlB74qPIZfX3RgHaHa?w=178&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" className='h-60' alt="" />
                 <div className='flex flex-col pb-5 justify-center px-4'>
                     <h3 className='py-1'>Playlist Name</h3>
@@ -44,12 +46,17 @@ export default function InPlaylist() {
                 </div>
             </div>
             <div className='bg-white h-[1px] mt-10 mb-2' />
-            <div className='py-4'>
+            {playist ? <div className='py-4'>
+                {playist.map((element)=>{
+                    return <Song_Cards/>
+                })}
+                </div> : <div className='py-4'></div>}
+            {/* <div className='py-4'>
                 <Song_Cards />
                 <Song_Cards />
                 <Song_Cards />
                 <Song_Cards />
-            </div>
+            </div> */}
         </div>
     )
 }
