@@ -1,31 +1,32 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { set_playlist_id } from './features/store'
 
-export default class Playlist_Cards extends Component {
+export default function Playlist_Cards(props) {
+  const playlist_data = props.playlist_data
 
-  constructor(props) {
-    super(props)
+  useEffect(() => {
+    // get_id()
+  })
 
-    this.state = {
-      playlist_id: this.props.playlist_id
-    }
-  }
+  
 
-  render() {
-    return (
-      <div className='bg-gray-700 mx-4 my-3 h-64 w-48 hover:bg-gray-500 transition-colors duration-200 justify-center items-center flex flex-col'>
+  // window.onload = get_id()
 
-        <Link to='inplaylist'>
-          <div className='px-2 pt-3 py-9 w-[95%] h-[90%]'>
+  return (
+    <div className='playlist bg-gray-700 mx-4 my-3 h-64 w-48 hover:bg-gray-500 transition-colors duration-200 justify-center items-center flex flex-col'>
 
-            <img src={this.props.playlist_img} alt="" className='m-auto w-[100%] h-[60%] mt-4' />
+      <Link to='inplaylist'>
+        <div className='px-2 pt-3 py-9 w-[95%] h-[90%]' id='abc'>
 
-            <h3 className='text-white font-normal pt-1 px-1'> {this.props.playlist_name} </h3>
-            <p className='text-sm text-gray-400'>{this.props.description}...</p>
+          <img src={props.playlist_img} alt="" className='m-auto w-[100%] h-[60%] mt-4' />
 
-          </div>
-        </Link>
-      </div>
-    )
-  }
+          <h3 className='text-white font-normal pt-1 px-1'> {props.playlist_name} </h3>
+          <p className='text-sm text-gray-400'>{props.description}...</p>
+
+        </div>
+      </Link>
+    </div>
+  )
 }

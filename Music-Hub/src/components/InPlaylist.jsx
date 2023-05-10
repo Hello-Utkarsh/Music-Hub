@@ -7,6 +7,7 @@ export default function InPlaylist() {
     const hash_token = useSelector(state => state.hash_token.value)
     const playlist_id = useSelector(state => state.playlist_id.value)
     const [playlist, set_playlist] = useState([])
+    const [playlist_detail, set_detail] = useState([])
     // console.log(playlist_id)
 
     
@@ -27,6 +28,7 @@ export default function InPlaylist() {
             }
         })
         let parsed_data = await result.json()
+        set_detail(parsed_data)
         set_playlist(parsed_data.tracks.items)
     }
 
@@ -37,9 +39,9 @@ export default function InPlaylist() {
             <div className=' px-8 w-full flex items-end py-16'>
                 <img src="https://th.bing.com/th/id/OIP.o9A22FDuVlB74qPIZfX3RgHaHa?w=178&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" className='h-60' alt="" />
                 <div className='flex flex-col pb-5 justify-center px-4'>
-                    <h3 className='py-1'>Playlist Name</h3>
-                    <h3 className='py-1'>Singers</h3>
-                    <h3 className='py-1'>Length of the playlist</h3>
+                    <h3 className='py-1'>{playlist_detail.name}</h3>
+                    <h3 className='py-1'>{playlist_detail.owner ? playlist_detail.owner.display_name : 'Not Available'}</h3>
+                    <h3 className='py-1'>Length of the playlist: {playlist.length}</h3>
                     <span className="material-symbols-outlined mt-4 cursor-pointer" style={{ fontSize: "30px" }}>
                         bookmarks
                     </span>
