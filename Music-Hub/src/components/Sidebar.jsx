@@ -53,9 +53,9 @@ export default function Sidebar() {
 
 
     return (
-        <div className='w-1/6 text-white h-full fixed bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
+        <div className='w-1/6 text-white h-[100vh] bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
 
-            <div className='px-5 py-4'>
+            <div className='px-5 py-4 fixed'>
                 <h1 className='text-3xl font-semibold'>Music Hub</h1>
 
                 <div className='py-10'>

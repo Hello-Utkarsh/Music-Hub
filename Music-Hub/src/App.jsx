@@ -21,7 +21,7 @@ function App() {
 
         </div>} />
         
-        <Route path="Home/inplaylist" element={<div className='bg-black flex h-[100vh] '>
+        <Route path="Home/inplaylist" element={<div className='bg-black flex w-[100vw] '>
 
           <Sidebar />
           <InPlaylist />

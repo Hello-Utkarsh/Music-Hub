@@ -35,7 +35,7 @@ export default function InPlaylist() {
     
 
     return (
-        <div className='h-fit w-[100vw] bg-gradient-to-b from-[#4705a4d6] to-[#0000005d] pl-[16.66%]'>
+        <div className='h-full w-full bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
             <div className=' px-8 w-full flex items-end py-16'>
                 <img src="https://th.bing.com/th/id/OIP.o9A22FDuVlB74qPIZfX3RgHaHa?w=178&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" className='h-60' alt="" />
                 <div className='flex flex-col pb-5 justify-center px-4'>
