@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import Connect from './components/Connect'
 import InPlaylist from './components/InPlaylist'
 import Liked_playlist from './components/Liked_playlist'
+import Player from './components/Player';
 
 
 function App() {
@@ -18,13 +19,15 @@ function App() {
 
           <Sidebar />
           <Liked_playlist />
+          <Player />
 
         </div>} />
         
-        <Route path="Home/inplaylist" element={<div className='bg-black flex w-[100vw] '>
+        <Route path="Home/inplaylist" element={<div className='bg-black flex '>
 
           <Sidebar />
           <InPlaylist />
+          <Player />
 
         </div>} />
         <Route path="Home" element={<Home />} />

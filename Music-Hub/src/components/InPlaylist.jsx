@@ -30,6 +30,7 @@ export default function InPlaylist() {
         let parsed_data = await result.json()
         set_detail(parsed_data)
         set_playlist(parsed_data.tracks.items)
+        console.log(parsed_data.tracks.items[0])
     }
 
     
@@ -50,7 +51,7 @@ export default function InPlaylist() {
             <div className='bg-white h-[1px] mt-10 mb-2' />
             {playlist ? <div className='py-4'>
                 {playlist.map((element)=>{
-                    return <Song_Cards artist = {element.track.artist ? element.track.artist[0].name : 'Unavailable'} name = {element.track.name ? element.track.name : 'Unavailable'} img={element.track.album.images[1] ? element.track.album.images[1].url : ""}/>
+                    return <Song_Cards element = {element} artist = {element.track.artist ? element.track.artist[0].name : 'Unavailable'} name = {element.track.name ? element.track.name : 'Unavailable'} img={element.track.album.images[1] ? element.track.album.images[1].url : ""}/>
                 })}
                 </div> : <div className='py-4'></div>}
             {/* <div className='py-4'>
