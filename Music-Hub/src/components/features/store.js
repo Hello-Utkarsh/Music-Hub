@@ -16,6 +16,18 @@ export const token = createSlice({
   }
 })
 
+export const play_state = createSlice({
+  name: 'play_state',
+  initialState: {
+    value: true
+  },
+  reducers: {
+    set_play_value: (state, value) =>{
+      state.value = value.payload
+    }
+  }
+})
+
 export const hash_token = createSlice({
   name: 'hash_token',
   initialState: {
@@ -78,6 +90,7 @@ export const play_song = createSlice({
 
 export default configureStore({
   reducer: {
+    play_state: play_state.reducer,
     token: token.reducer,
     hash_token: hash_token.reducer,
     playlist_id: playlist_id.reducer,
@@ -89,6 +102,7 @@ export default configureStore({
 
 // Action creators are generated for each case reducer function
 export const { set_token } = token.actions
+export const {set_play_value} = play_state.actions
 export const {set_hash} = hash_token.actions
 export const {set_playlist_id} = playlist_id.actions
 export const {set_details} = profile_details.actions

@@ -93,7 +93,7 @@ export default function Home() {
 
                 <Sidebar />
                 <Mainwindow token={token} user_details={profile_details} />
-                <Player />
+                <Player/>
 
             </div> : <Login />}
         </div>
