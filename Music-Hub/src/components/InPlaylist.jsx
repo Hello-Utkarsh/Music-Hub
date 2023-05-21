@@ -1,23 +1,28 @@
 import React, { Component, useEffect, useState } from 'react'
 import Song_Cards from './Song_Cards'
-import { useSelector } from 'react-redux'
+import {useSelector } from 'react-redux'
 
 export default function InPlaylist() {
     const hash_token = useSelector(state => state.hash_token.value)
     const playlist_id = useSelector(state => state.playlist_id.value)
     const [playlist, set_playlist] = useState([])
     const [playlist_detail, set_detail] = useState([])
+    const hash = useSelector(state => state.hash.value)
+    const scopes = useSelector(state => state.scopes.value)
+    const client_id = import.meta.env.VITE_CLIENT_ID
 
-    
 
-    useEffect(()=>{
+    useEffect(() => {
         if (playlist_id != undefined) {
-            get_playlist()
+            get_playlist().then
         }
 
+        if (!hash) {
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=http://127.0.0.1:5173/Home&scope=${scopes.join(' ')}&show_dialog=true`
+        }
         
     }, [playlist_id])
-    const get_playlist = async() => {
+    const get_playlist = async () => {
         let result = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}`, {
             method: 'GET',
             headers: {
@@ -28,9 +33,11 @@ export default function InPlaylist() {
         let parsed_data = await result.json()
         set_detail(parsed_data)
         set_playlist(parsed_data.tracks.items)
+        console.log(parsed_data.tracks.items)
+        
     }
 
-    
+
 
     return (
         <div className='h-full w-full bg-gradient-to-b from-[#4705a4d6] to-[#0000005d]'>
@@ -47,10 +54,10 @@ export default function InPlaylist() {
             </div>
             <div className='bg-white h-[1px] mt-10 mb-2' />
             {playlist ? <div className='py-4'>
-                {playlist.map((element)=>{
-                    return <Song_Cards element = {element} artist = {element.track.artists ? element.track.artists[0].name : "Unavailable"} name = {element.track.name ? element.track.name : 'Unavailable'} img={element.track.album.images[1] ? element.track.album.images[1].url : ""}/>
+                {playlist.map((element) => {
+                    return <Song_Cards element={element} artist={element.track.artists ? element.track.artists[0].name : "Unavailable"} name={element.track.name ? element.track.name : 'Unavailable'} img={element.track.album.images[1] ? element.track.album.images[1].url : ""} />
                 })}
-                </div> : <div className='py-4'></div>}
+            </div> : <div className='py-4'></div>}
         </div>
     )
 }

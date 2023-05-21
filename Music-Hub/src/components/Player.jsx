@@ -50,11 +50,6 @@ export default function Player() {
                         <span className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
                             arrow_back_ios
                         </span>
-                        {/* {play_state ? <span onClick={playing()} className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '50px' }}>
-                            play_arrow
-                        </span> : <span className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '50px' }}>
-                            pause
-                        </span>} */}
                         <span onClick={changestate} className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '50px' }}>
                             {play_state ? 'play_arrow' : 'pause'}
                         </span>

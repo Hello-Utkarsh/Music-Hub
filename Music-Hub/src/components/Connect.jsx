@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { set_hash_token } from './features/store'
 
 export default function Connect() {
 
     const [token, set_token] = useState(undefined)
     const [signed, signit] = useState(false)
+    const scopes = useSelector(state => state.scopes.value)
 
-    const scopes = [
-        'user-read-email',
-        'user-read-private',
-        'user-read-playback-state',
-        'user-modify-playback-state',
-        'user-read-currently-playing',
-        'user-read-playback-position',
-        'user-read-recently-played',
-        'user-top-read'
+    // const scopes = [
+    //     'user-read-email',
+    //     'user-read-private',
+    //     'user-read-playback-state',
+    //     'user-modify-playback-state',
+    //     'user-read-currently-playing',
+    //     'user-read-playback-position',
+    //     'user-read-recently-played',
+    //     'user-top-read'
 
-    ]
+    // ]
 
 
     const client_id = import.meta.env.VITE_CLIENT_ID
@@ -40,11 +43,7 @@ export default function Connect() {
     }
 
     const getToken = async () => {
-
-
-
         console.log(token)
-        // getUser()
     }
 
     useEffect(() => {

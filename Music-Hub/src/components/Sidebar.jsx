@@ -13,7 +13,6 @@ export default function Sidebar() {
         Array.from(document.getElementsByClassName('xyz')).map((element) => {
             element.addEventListener('click', (element) => {
                 dispatch(set_playlist_id(element.target.id))
-                // console.log(element.target.id)
             })
         })
     }
@@ -25,9 +24,6 @@ export default function Sidebar() {
             get_user_playlist()
 
         }
-
-        // get_playlist_id()
-
 
     }, [])
 
@@ -43,12 +39,6 @@ export default function Sidebar() {
         let parsed_data = await result.json()
         set_playlist(parsed_data.items)
     }
-
-    // const set_playlist_id = (element) => {
-    //     // dispatch(set_playlist_id(element.id))
-    //     console.log(element)
-    // }
-
 
 
 

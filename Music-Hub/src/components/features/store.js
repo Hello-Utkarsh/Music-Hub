@@ -3,7 +3,19 @@ import { configureStore } from '@reduxjs/toolkit'
 // import counterReducer, { hello_world } from '../features/counterSlice'
 
 
-
+export const scopes = createSlice({
+  name: 'scopes',
+  initialState: {
+    value: ['user-read-email',
+    'user-read-private',
+    'user-read-playback-state',
+    'user-modify-playback-state',
+    'user-read-currently-playing',
+    'user-read-playback-position',
+    'user-read-recently-played',
+    'user-top-read']
+  }
+})
 export const token = createSlice({
   name: 'token',
   initialState: {
@@ -76,6 +88,18 @@ export const profile_details = createSlice({
   }
 })
 
+export const hash = createSlice({
+  name: 'hash',
+  initialState: {
+    value: undefined
+  },
+  reducers: {
+    set_hash_token: (state, value) => {
+      state.value = value
+    }
+  }
+})
+
 export const play_song = createSlice({
   name: 'play_song',
   initialState: {
@@ -96,7 +120,9 @@ export default configureStore({
     playlist_id: playlist_id.reducer,
     profile_details: profile_details.reducer,
     liked_songs: liked_songs.reducer,
-    play_song: play_song.reducer
+    play_song: play_song.reducer,
+    scopes: scopes.reducer,
+    hash: hash.reducer
   }
 })
 
@@ -108,4 +134,6 @@ export const {set_playlist_id} = playlist_id.actions
 export const {set_details} = profile_details.actions
 export const {add_liked_songs} = liked_songs.actions
 export const {set_play_song} = play_song.actions
+export const {set_hash_token} = hash.actions
+// export const {scopes} = scopes.actions
 // export default counterSlice.reducer

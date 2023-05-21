@@ -6,7 +6,6 @@ export default function Song_Cards(props) {
   const dispatch = useDispatch()
 
   const play_song = () => {
-    // console.log(props.element)
     dispatch(set_play_song(props.element))
   }
 
