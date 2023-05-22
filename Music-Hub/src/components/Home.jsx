@@ -12,7 +12,6 @@ export default function Home() {
     const token = useSelector(state => state.token.value)
     const hash_token = useSelector(state => state.hash_token.value)
     const profile_details = useSelector(state => state.profile_details.value)
-    // const hash = useSelector(state => state.hash.value)
     const hash = window.location.hash
     const dispatch = useDispatch()
     const scopes = useSelector(state => state.scopes.value)

@@ -25,10 +25,6 @@ export default function Liked_playlist() {
                 {liked_songs.map((element)=>{
                     return <Song_Cards/>
                 })}
-                {/* <Song_Cards />
-                <Song_Cards />
-                <Song_Cards />
-                <Song_Cards /> */}
             </div>
         </div>
     )

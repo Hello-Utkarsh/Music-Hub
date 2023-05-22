@@ -1,12 +1,28 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { set_play_value } from './features/store'
+import { hash, set_play_value } from './features/store'
 
 export default function Player() {
     const played_song = useSelector(state => state.play_song.value)
+    const token = useSelector(state => state.token.value)
+    const hash_token = useSelector(state => state.hash_token.value)
     let artists = undefined
     const dispatch = useDispatch()
     let play_state = useSelector(state => state.play_state.value)
+
+    const changetrack = async(type) => {
+        console.log(hash_token)
+        let result = await fetch(`https://api.spotify.com/v1/me/player/${type}`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Bearer  ' + hash_token
+
+            }
+        })
+        let parsed_data = await result.json()
+        console.log(parsed_data)
+    }
 
     const changestate = () => {
         if (play_state == true) {
@@ -47,14 +63,14 @@ export default function Player() {
 
                 <div className='w-[30%] text-white h-full m-auto flex flex-col items-center justify-center'>
                     <div className='w-full h-[50%] flex justify-center items-center'>
-                        <span className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
+                        <span onClick={()=>{changetrack('previous')}} className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
                             arrow_back_ios
                         </span>
                         <span onClick={changestate} className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '50px' }}>
                             {play_state ? 'play_arrow' : 'pause'}
                         </span>
                         
-                        <span className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
+                        <span onClick={()=>{changetrack('next')}} className="material-symbols-outlined font-light cursor-pointer mx-3" style={{ fontSize: '28px' }}>
                             arrow_forward_ios
                         </span>
                     </div>

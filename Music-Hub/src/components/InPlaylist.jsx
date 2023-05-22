@@ -33,8 +33,6 @@ export default function InPlaylist() {
         let parsed_data = await result.json()
         set_detail(parsed_data)
         set_playlist(parsed_data.tracks.items)
-        console.log(parsed_data.tracks.items)
-        
     }
 
 
