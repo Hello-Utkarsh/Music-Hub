@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="" element={<Login />} />
         <Route path="Connect" element={<Connect />} />
         <Route path="Home/liked" element={<div className='bg-black flex h-[100vh]'>
 
